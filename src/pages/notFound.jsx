@@ -10,4 +10,4 @@ class notFound extends Component {
   }
 }
 
-export default notFound ;
+export default notFound;
