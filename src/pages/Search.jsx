@@ -71,9 +71,8 @@ class Search extends Component {
             {albums.length > 0 && (
               <h3>
                 Resultado de álbuns de:
-                `
+                {' '}
                 {pesquise}
-                `
 
               </h3>
             )}
