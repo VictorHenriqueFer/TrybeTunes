@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Proptype from 'prop-types';
 import Loading from '../pages/Loading';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   state = {
-
     loading: false,
     checked: false,
   };
@@ -25,16 +24,11 @@ class MusicCard extends Component {
     });
     if (target.checked) {
       await addSong(music);
-      this.setState({
-        checked: true,
-      });
-    } else {
-      await removeSong(music);
-      this.setState({
-        loading: false,
-        checked: target.checked,
-      });
     }
+    this.setState({
+      loading: false,
+      checked: target.checked,
+    });
   };
 
   render() {

@@ -7,17 +7,14 @@ import getMusics from '../services/musicsAPI';
 class Album extends Component {
   state = {
     musics: [],
-    //  songFavorite: [],
 
   };
 
   async componentDidMount() {
     const { match: { params: { id } } } = this.props;
     const musicList = await getMusics(id);
-    // const songFavorite = await getFavoriteSongs();
     this.setState({
       musics: musicList,
-    //  songFavorite,
     });
   }
 
@@ -32,8 +29,7 @@ class Album extends Component {
           {musics.slice(1).map((music) => (
             <MusicCard
               key={ music.trackId }
-              musicId={ music.trackId }
-              //  favorite={ songFavorite }
+              trackId={ music.trackId }
               music={ music }
             />
           ))}
