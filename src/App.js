@@ -13,11 +13,11 @@ class App extends React.Component {
     return (
       <Switch>
         <Route path="/" component={ Home } exact />
-        <Route path="/album/:id" component={ Album } />
-        <Route path="/favorites" component={ Favorites } />
-        <Route path="/search" component={ Search } />
-        <Route path="/profile" component={ Profile } />
-        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/album/:id" component={ Album } exact />
+        <Route path="/favorites" component={ Favorites } exact />
+        <Route path="/search" component={ Search } exact />
+        <Route path="/profile" component={ Profile } exact />
+        <Route path="/profile/edit" component={ ProfileEdit } exact />
         <Route path="*" component={ notFound } />
 
       </Switch>
