@@ -31,6 +31,7 @@ class Album extends Component {
               key={ music.trackId }
               trackId={ music.trackId }
               music={ music }
+              updtadMusics={ () => {} }
             />
           ))}
         </div>
