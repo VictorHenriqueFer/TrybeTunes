@@ -18,7 +18,7 @@ class MusicCard extends Component {
   }
 
   onAddFavorite = async ({ target }) => {
-    const { music } = this.props;
+    const { music, updtadMusics } = this.props;
     this.setState({
       loading: true,
     });
@@ -31,6 +31,7 @@ class MusicCard extends Component {
       loading: false,
       checked: target.checked,
     });
+    updtadMusics();
   };
 
   render() {
@@ -52,6 +53,7 @@ class MusicCard extends Component {
               Favorita
 
               <input
+                id="favorite"
                 type="checkbox"
                 data-testid={ `checkbox-music-${music.trackId}` }
                 checked={ checked }
