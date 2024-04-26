@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-max-depth */
+/* eslint-disable max-len */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
 import { createUser } from '../services/userAPI';
+import logo from '../images/logo.png';
 
 class Home extends Component {
   state = {
@@ -40,27 +43,44 @@ class Home extends Component {
       <div>
         {
           loading ? <Loading /> : (
-            <section>
-              <div data-testid="page-login">
-                <h1>Home</h1>
+            <section className="flex justify-center items-center h-screen bg-gradient-to-r from-sky-400 from-10% via-azul via-40% to-cyan-500 to-90%">
+              <div className=" w-full max-w-xl rounded-lg bg-white">
+
+                <div className="max-w-sm mx-auto ">
+                  <div
+                    data-testid="page-login"
+                    className="flex justify-center items-center mx-auto mt-10"
+                  >
+                    <img src={ logo } alt="logo" className="px-auto mx-auto" />
+                  </div>
+                  <form>
+                    <div className=" mt-10 flex justify-center">
+
+                      <input
+                        className="block mx-8 mt-4 w-full px-4 py-2 mt-2 text-azul placeholder-gray-500 bg-white border-2 border-azul rounded-full focus:border-blue-400
+                        focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300 placeholder:text-azul placeholder:text-center"
+                        data-testid="login-name-input"
+                        type="text"
+                        name="user"
+                        value={ user }
+                        onChange={ this.onInputChange }
+                        placeholder="Qual seu nome?"
+                      />
+                    </div>
+                    <div className="flex items-center justify-center my-8">
+
+                      <button
+                        className="bg-azul hover:bg-blue-700 text-white font-bold py-2 px-4 w-80 rounded-full focus:outline-none focus:shadow-outline"
+                        data-testid="login-submit-button"
+                        disabled={ user.length < numberMin }
+                        onClick={ this.clickButton }
+                      >
+                        ENTRAR
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <form>
-                <label htmlFor="name">Nome</label>
-                <input
-                  data-testid="login-name-input"
-                  type="text"
-                  name="user"
-                  value={ user }
-                  onChange={ this.onInputChange }
-                />
-                <button
-                  data-testid="login-submit-button"
-                  disabled={ user.length < numberMin }
-                  onClick={ this.clickButton }
-                >
-                  Entrar
-                </button>
-              </form>
             </section>
 
           )
